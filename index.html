@@ -12,12 +12,15 @@
 	</style>
   </head>
   <body>
-	<canvas class="myCanvas">
-  		<p>Add suitable fallback here.</p>
-	</canvas>
+	  <div class="wrapper" style="margin: 0 auto; width: 800px; position: relative;">
+	  	<canvas class="myCanvas" id="canvas" style="border: none;" width="400" height="400" align="center"></canvas>
+	   <div class="controls" style="position: absolute; top:0; left:0;">
+	       <h2>Controls</h2>
+	       <button class="btn" onclick="demo()">Start</button>
+	   </div>
+	</div>
+
     <script type="text/javascript" src="cardoid.js"></script>	  
-    <script>
-		demo();
-    </script>
+
   </body>
 </html>
