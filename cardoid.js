@@ -102,6 +102,11 @@ function drawOne() {
 	drawForMultiplicator(mult);
 }
 
+function drawNext() {
+	mult++;
+	drawForMultiplicator(mult);
+}
+
 async function demo() {
 	getValues();
 
