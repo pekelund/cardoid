@@ -107,7 +107,7 @@ function updateValues() {
 
 async function drawForMultiplicator(mult) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	ctx.strokeStyle(get_random_color());
+	ctx.strokeStyle = get_random_color();
 	drawCircle();
 	for (dot = 0; dot < num_points; dot++) {
 		connectPoints(dot, dot*mult);
