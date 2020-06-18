@@ -35,24 +35,24 @@ function setValues() {
 };
 
 function degToRad(degrees) {
-  return degrees * Math.PI / 180;
+	return degrees * Math.PI / 180;
 };
 
 function get_random_color() {
-  function c() {
-    var hex = Math.floor(Math.random()*256).toString(16);
-    return ("0"+String(hex)).substr(-2); // pad with zero
-  }
-  return "#"+c()+c()+c();
+	function c() {
+		var hex = Math.floor(Math.random() * 256).toString(16);
+		return ("0" + String(hex)).substr(-2); // pad with zero
+	}
+	return "#" + c() + c() + c();
 }
 
 function getX(x) {
-	var angle = 360/num_points*x;
-	return center_x + radius * Math.cos(-angle*Math.PI/180);
+	var angle = 360 / num_points * x;
+	return center_x + radius * Math.cos(-angle * Math.PI / 180);
 }
 function getY(y) {
-	var angle = 360/num_points*y;
-	return center_y + radius * Math.sin(-angle*Math.PI/180);	
+	var angle = 360 / num_points * y;
+	return center_y + radius * Math.sin(-angle * Math.PI / 180);
 }
 
 function drawCircle() {
@@ -61,27 +61,27 @@ function drawCircle() {
 	ctx.stroke();
 }
 
-function drawPoint(angle,distance,label){
-	var angle = 360/num_points*angle;
-  	var x = center_x + radius * Math.cos(-angle*Math.PI/180) * distance;
-	var y = center_y + radius * Math.sin(-angle*Math.PI/180) * distance;
+function drawPoint(angle, distance, label) {
+	var angle = 360 / num_points * angle;
+	var x = center_x + radius * Math.cos(-angle * Math.PI / 180) * distance;
+	var y = center_y + radius * Math.sin(-angle * Math.PI / 180) * distance;
 
 	ctx.beginPath();
 	ctx.arc(x, y, point_size, 0, 2 * Math.PI);
 	ctx.fill();
 
 	ctx.font = font_size;
-	ctx.fillText(label,x + 10,y);
+	ctx.fillText(label, x + 10, y);
 }
 
 function addDots(ctx) {
-  for (i = 0; i < num_points; i++) {
-	  drawPoint(i, 1, i);
+	for (i = 0; i < num_points; i++) {
+		drawPoint(i, 1, i);
 	}
 }
 
 function connectPoints(point1, point2) {
-	toPoint = point2%num_points;
+	toPoint = point2 % num_points;
 	x1 = getX(point1);
 	y1 = getY(point1);
 	x2 = getX(toPoint);
@@ -89,7 +89,7 @@ function connectPoints(point1, point2) {
 
 	ctx.lineWidth = 1;
 
-  	ctx.beginPath();
+	ctx.beginPath();
 	ctx.moveTo(x1, y1);
 	ctx.lineTo(x2, y2);
 	ctx.stroke();
@@ -108,8 +108,8 @@ async function drawForMultiplicator(mult) {
 	ctx.strokeStyle = get_random_color();
 	drawCircle();
 	for (dot = 0; dot < num_points; dot++) {
-		connectPoints(dot, dot*mult);
-		await sleep(delay_line);
+		connectPoints(dot, dot * mult);
+		//		await sleep(delay_line);
 	}
 }
 
@@ -136,8 +136,8 @@ async function demo() {
 	drawCircle();
 	addDots(ctx);
 
-	for (m=0; m < iterations; m=m+increment) {
-		drawForMultiplicator(m+mult);
+	for (m = 0; m < iterations; m = m + increment) {
+		drawForMultiplicator(m + mult);
 		await sleep(delay_iteration);
 	}
 }
