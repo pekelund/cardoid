@@ -93,12 +93,12 @@ async function demo() {
 
 	addDots(ctx);
 
-	for (m= mult; m < iterations; m=m+increment) {
-		console.log("Mult: ", m);
+	for (m=0; m < iterations; m=m+increment) {
+		console.log("Mult: ", m + mult);
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		for (dot = 0; dot < num_points; dot++) {
 			//console.log("connect points: ", dot, dot*mult);
-			connectPoints(dot, dot*m);
+			connectPoints(dot, dot*(m+mult));
 			await sleep(delay_line);
 		}
 		await sleep(delay_iteration);
