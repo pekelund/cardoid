@@ -84,7 +84,7 @@ function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function uppdatera() {
+function updateValues() {
 	getValues();
 }
 
