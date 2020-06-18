@@ -84,6 +84,10 @@ function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function uppdatera() {
+	getValues();
+}
+
 async function demo() {
 	getValues();
 	ctx.fillStyle = 'rgb(0, 0, 255)';
