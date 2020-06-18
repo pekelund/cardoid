@@ -25,6 +25,15 @@ function getValues() {
 	delay_line = parseInt(document.getElementById("delayRitningar").value);
 };
 
+function setValues() {
+	document.getElementById("nPoints").value = num_points;
+	document.getElementById("multiplikator").value = mult;
+	document.getElementById("increment").value = increment;
+	document.getElementById("iterationer").value = iterations;
+	document.getElementById("delayIterationer").value = delay_iteration;
+	document.getElementById("delayRitningar").value = delay_line;
+};
+
 function degToRad(degrees) {
   return degrees * Math.PI / 180;
 };
@@ -104,6 +113,13 @@ function drawOne() {
 
 function drawNext() {
 	mult++;
+	setValues();
+	drawForMultiplicator(mult);
+}
+
+function drawPrevious() {
+	mult--;
+	setValues();
 	drawForMultiplicator(mult);
 }
 
