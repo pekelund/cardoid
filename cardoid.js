@@ -88,6 +88,15 @@ function updateValues() {
 	getValues();
 }
 
+function drawForMultiplicator(mult) {
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	drawCircle();
+	for (dot = 0; dot < num_points; dot++) {
+		connectPoints(dot, dot*mult);
+		await sleep(delay_line);
+	}
+}
+
 async function demo() {
 	getValues();
 
@@ -95,13 +104,7 @@ async function demo() {
 	addDots(ctx);
 
 	for (m=0; m < iterations; m=m+increment) {
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		drawCircle();
-		for (dot = 0; dot < num_points; dot++) {
-			//console.log("connect points: ", dot, dot*mult);
-			connectPoints(dot, dot*(m+mult));
-			await sleep(delay_line);
-		}
+		drawForMultiplicator(m+mult);
 		await sleep(delay_iteration);
 	}
 }
