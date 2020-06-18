@@ -38,6 +38,14 @@ function degToRad(degrees) {
   return degrees * Math.PI / 180;
 };
 
+function get_random_color() {
+  function c() {
+    var hex = Math.floor(Math.random()*256).toString(16);
+    return ("0"+String(hex)).substr(-2); // pad with zero
+  }
+  return "#"+c()+c()+c();
+}
+
 function getX(x) {
 	var angle = 360/num_points*x;
 	return center_x + radius * Math.cos(-angle*Math.PI/180);
@@ -80,7 +88,7 @@ function connectPoints(point1, point2) {
 	x2 = getX(toPoint);
 	y2 = getY(toPoint);
 
-	ctx.fillStyle = 'rgb(0, 0, 255)';
+	ctx.fillStyle = get_random_color();
 	ctx.lineWidth = 1;
 
   	ctx.beginPath();
