@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Canvas</title>
+	<head>
+		<meta charset="utf-8">
+		<title>Cardoid demo</title>
+		<style>
+			body {
+    			margin: 0;
+    			overflow: hidden;
+  			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper" style="margin: 0 auto; width: 800px; position: relative;">
+		<canvas class="myCanvas" id="canvas" style="border: none;" width="400" height="400" align="center"></canvas>
+		<div class="controls" style="position: absolute; top:0; left:0;">
+		<h2>Controls</h2>
+			<label for="nPoints">Antal punkter på cirkeln:</label>
+			<input type="text" id="nPoints" name="nPoints" value="10">
+			<label for="multiplikator">Multiplikator:</label>
+			<input type="text" id="multiplikator" name="multiplikator" value="2">
+			<label for="iterationer">Antal iterationer:</label>
+			<input type="text" id="iterationer" name="iterationer" value="10">
+			<label for="delayIterationer">Delay mellan iterationer:</label>
+			<input type="text" id="delayIterationer" name="delayIterationer" value="200">
+			<label for="delayRitningar">Delay mellan ritningar:</label>
+			<input type="text" id="delayRitningar" name="delayRitningar" value="10">			
+			<button class="btn" onclick="demo()">Start</button>
+		</div>
+		</div>
 
-    <style>
-		body {
-    		margin: 0;
-    		overflow: hidden;
-  		}
-	</style>
-  </head>
-  <body>
-	  <div class="wrapper" style="margin: 0 auto; width: 800px; position: relative;">
-	  	<canvas class="myCanvas" id="canvas" style="border: none;" width="400" height="400" align="center"></canvas>
-	   <div class="controls" style="position: absolute; top:0; left:0;">
-	       <h2>Controls</h2>
-	       <button class="btn" onclick="demo()">Start</button>
-	   </div>
-	</div>
-
-    <script type="text/javascript" src="cardoid.js"></script>	  
-
-  </body>
+		<script type="text/javascript" src="cardoid.js"></script>	  
+	</body>
 </html>
