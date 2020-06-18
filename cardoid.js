@@ -11,6 +11,19 @@ var point_size = 4;
 var font_size = "20px"
 var num_points = 500;
 var mult = 2;
+var iterations = 10;
+var increment = 1;
+var delay_iteration = 200;
+var delay_line = 10;
+
+function getValues() {
+	num_points = document.getElementById("nPoints").value;
+	mult = document.getElementById("multiplikator").value;
+	increment = document.getElementById("increment").value;
+	iterations = document.getElementById("iterationer").value
+	delay_iteration = document.getElementById("delayIterationer").value
+	delay_line = document.getElementById("delayRitningar").value
+};
 
 function degToRad(degrees) {
   return degrees * Math.PI / 180;
@@ -72,6 +85,7 @@ function sleep(ms) {
 }
 
 async function demo() {
+	getValues();
 	ctx.fillStyle = 'rgb(0, 0, 255)';
 	ctx.beginPath();
 	ctx.arc(300, 300, 250, degToRad(0), degToRad(360), false);
@@ -79,14 +93,15 @@ async function demo() {
 
 	addDots(ctx);
 
-	for (m= mult; m < 500; m=m+0.1) {
+	for (m= mult; m < iterations; m=m+0.1) {
 		console.log("Mult: ", m);
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		for (dot = 0; dot < num_points; dot++) {
 			//console.log("connect points: ", dot, dot*mult);
 			connectPoints(dot, dot*m);
+			await sleep(delay_line);
 		}
-		await sleep(100);
+		await sleep(delay_iteration);
 
 	}
 }
