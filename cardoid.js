@@ -93,7 +93,7 @@ async function demo() {
 
 	addDots(ctx);
 
-	for (m= mult; m < iterations; m=m+0.1) {
+	for (m= mult; m < iterations; m=m+increment) {
 		console.log("Mult: ", m);
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		for (dot = 0; dot < num_points; dot++) {
