@@ -19,7 +19,7 @@ var delay_line = 10;
 function getValues() {
 	num_points = parseInt(document.getElementById("nPoints").value);
 	mult = parseInt(document.getElementById("multiplikator").value);
-	increment = parseInt(document.getElementById("increment").value);
+	increment = parseFloat(document.getElementById("increment").value);
 	iterations = parseInt(document.getElementById("iterationer").value);
 	delay_iteration = parseInt(document.getElementById("delayIterationer").value);
 	delay_line = parseInt(document.getElementById("delayRitningar").value);
