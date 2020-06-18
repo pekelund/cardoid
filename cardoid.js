@@ -97,6 +97,10 @@ function drawForMultiplicator(mult) {
 	}
 }
 
+function drawOne() {
+	drawForMultiplicator(mult);
+}
+
 async function demo() {
 	getValues();
 
