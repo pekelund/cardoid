@@ -17,12 +17,12 @@ var delay_iteration = 200;
 var delay_line = 10;
 
 function getValues() {
-	num_points = document.getElementById("nPoints").value;
-	mult = document.getElementById("multiplikator").value;
-	increment = document.getElementById("increment").value;
-	iterations = document.getElementById("iterationer").value
-	delay_iteration = document.getElementById("delayIterationer").value
-	delay_line = document.getElementById("delayRitningar").value
+	num_points = parseInt(document.getElementById("nPoints").value);
+	mult = parseInt(document.getElementById("multiplikator").value);
+	increment = parseInt(document.getElementById("increment").value);
+	iterations = parseInt(document.getElementById("iterationer").value);
+	delay_iteration = parseInt(document.getElementById("delayIterationer").value);
+	delay_line = parseInt(document.getElementById("delayRitningar").value);
 };
 
 function degToRad(degrees) {
