@@ -56,7 +56,6 @@ function getY(y) {
 }
 
 function drawCircle() {
-	ctx.fillStyle = 'rgb(0, 0, 255)';
 	ctx.beginPath();
 	ctx.arc(300, 300, 250, degToRad(0), degToRad(360), false);
 	ctx.stroke();
@@ -88,7 +87,6 @@ function connectPoints(point1, point2) {
 	x2 = getX(toPoint);
 	y2 = getY(toPoint);
 
-	ctx.fillStyle = get_random_color();
 	ctx.lineWidth = 1;
 
   	ctx.beginPath();
