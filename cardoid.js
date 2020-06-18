@@ -88,7 +88,7 @@ function updateValues() {
 	getValues();
 }
 
-function drawForMultiplicator(mult) {
+async function drawForMultiplicator(mult) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	drawCircle();
 	for (dot = 0; dot < num_points; dot++) {
